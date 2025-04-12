@@ -1,0 +1,22 @@
+# Ignore Node.js modules folder
+node_modules
+
+# Ignore Git folder
+.git
+
+# Ignore the SQLite database file
+# This should be managed via Docker volumes in production
+database/database.sqlite
+
+# Ignore OS-specific files
+.DS_Store
+
+# Ignore Docker related files
+Dockerfile
+.dockerignore
+
+# Ignore npm debug logs
+npm-debug.log*
+
+# Ignore environment files (if any, better handled via env vars in container)
+.env 

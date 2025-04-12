@@ -22,7 +22,7 @@ const db = new sqlite3.Database(dbPath, sqlite3.OPEN_READWRITE, (err) => {
   }
 });
 
-app.use(express.json({ limit: "10mb" })); // Use express built-in JSON parser, increase limit if needed
+app.use(express.json({ limit: "1000mb" })); // Use express built-in JSON parser, increase limit if needed
 
 // Sync endpoint
 app.put("/sync", (req, res) => {
@@ -30,11 +30,9 @@ app.put("/sync", (req, res) => {
 
   // Basic validation: Check if the body is an array
   if (!Array.isArray(campaigns)) {
-    return res
-      .status(400)
-      .json({
-        message: "Invalid request body: Expected an array of campaigns.",
-      });
+    return res.status(400).json({
+      message: "Invalid request body: Expected an array of campaigns.",
+    });
   }
 
   // Begin transaction
